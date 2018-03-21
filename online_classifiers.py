@@ -32,7 +32,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-def calculateMajorityClass(data):
+def caleMajCls(data):
     counter=Counter(data)
     print(counter)
     print ("Majority Class : " + str((max(counter.values())*100)/sum(counter.values())) + "%")
@@ -41,8 +41,7 @@ def vectorize_data(data):
     #process data and extract features as vectors, based on bag of words assumption {norm[l1 = normalized freq, l2 = binary ]}
     vectorizer = HashingVectorizer(decode_error='ignore', non_negative=True, binary=True, norm=None, ngram_range= (1,2), n_features=50000)
     data_vec=vectorizer.fit_transform(data)
-    dense = data_vec.todense()
-    return dense
+    return data_vec
 
 def to_table(report):
     "reformat classification report"
@@ -94,7 +93,7 @@ def main():
     
     # get classification results
     print('CLASSIFICATION REPORT')
-    calculateMajorityClass(all_labels)
+    caleMajCls(all_labels)
     print('')
     cls_rep= classification_report(all_labels, all_pred_labels)
     tb= to_table(cls_rep)
