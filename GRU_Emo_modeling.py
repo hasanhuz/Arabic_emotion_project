@@ -5,8 +5,6 @@ author = "Hassan"
 Date= "Nov 1st"
 Email= "halhuzali@gmail.com"
 
-##usage: python GRU_Emo_modeling.py --train path --dev path --batch_size 128 --vocab_size 80000 --epoch 4 --nodes 1000
-
 from collections import Counter
 from sklearn.metrics import classification_report
 from sys import argvfrom keras.preprocessing.text import Tokenizer
