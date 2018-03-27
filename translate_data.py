@@ -19,4 +19,4 @@ def trans_sent(message, lang_tag= "ar"):
     print('...Done...')
         
 print('Translating data now')
-trans_sent(message, lang_tag= "ar")
+trans_sent(message)
