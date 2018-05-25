@@ -8,7 +8,9 @@ import csv
 
 
 def trans_sent(message, lang_tag= "ar"):
-    "translate a message using Google Api, default lang is Arabic"
+    """translate a message using Google Api, default lang is Arabic
+    
+    message(str), [lang(str)] -> None"""
     with open(argv[1], 'ab') as f_w:
         writer = csv.writer(f_w, delimiter = ',', quoting=csv.QUOTE_ALL)
         try:
@@ -18,5 +20,5 @@ def trans_sent(message, lang_tag= "ar"):
             pass
     print('...Done...')
         
-print('Translating data now')
+print('Translating begin')
 trans_sent(message)
