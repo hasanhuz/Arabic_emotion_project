@@ -24,7 +24,7 @@ df['tweet']= df.tweet.map(str.strip)
 
 ################################################
 #clean data given some set of rules
-target objective language, religious content, quotations #:/-, adult, 
+#target objective language, religious content, quotations #:/-, adult, 
 list_seeds= ['سبحان الله', 'الله أكبر', 'اللهم', 'بسم الله', 'يا رب', 'العضيم','سبحان','يارب','قران','quran','قولون عصب','قال','إذا','-','الدراسات',' - ','فرق','"',' " '
              'حديث','hadith', 'صلاه_الفجر','﴾','ﷺ', 'صحيح البخاري','صحيح مسلم','يآرب', 'سورة','زوجتك','انثئ','…','رب',':','الرسول','صلى','الله','عليه','وسلم','استغفر','الحمدلله','الخير']
 pattern= '|'.join(list_seeds)
