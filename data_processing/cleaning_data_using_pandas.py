@@ -26,20 +26,20 @@ df['tweet']= df.tweet.map(str.strip)
 #clean data given some set of rules
 target objective language, religious content, quotations #:/-, adult, 
 list_seeds= ['سبحان الله', 'الله أكبر', 'اللهم', 'بسم الله', 'يا رب', 'العضيم','سبحان','يارب','قران','quran','قولون عصب','قال','إذا','-','الدراسات',' - ','فرق','"',' " '
-             'حديث','hadith', 'صلاه_الفجر','﴾','ﷺ', 'صحيح البخاري','صحيح مسلم','يآرب', 'سورة','زوجتك','انثئ','…','رب',':','الرسول','صلى','الله','عليه','وسلم']
+             'حديث','hadith', 'صلاه_الفجر','﴾','ﷺ', 'صحيح البخاري','صحيح مسلم','يآرب', 'سورة','زوجتك','انثئ','…','رب',':','الرسول','صلى','الله','عليه','وسلم','استغفر','الحمدلله','الخير']
 pattern= '|'.join(list_seeds)
 df= df[~df.tweet.str.contains(pattern)]
 
 ##############################################
 #remove tweet that have more than 5 diac
-diac = ['لَأ', 'فّّ', 'ةّ', 'هِ', 'تْ', 'هُ', 'زَ', 'يّ', 'نُ', 'ُ','ْ','َ','ِ','ّ','ً','ٍ','ٌ','لإ','أ','آ', 'ۓ']
-pt2= '|'.join(diac)
-df= df[df.tweet.str.count(pt2) <= 5]
+#diac = ['لَأ', 'فّّ', 'ةّ', 'هِ', 'تْ', 'هُ', 'زَ', 'يّ', 'نُ', 'ُ','ْ','َ','ِ','ّ','ً','ٍ','ٌ','لإ','أ','آ', 'ۓ']
+#pt2= '|'.join(diac)
+#df= df[df.tweet.str.count(pt2) <= 5]
 
 ##############################################
 #split: train (80%), dev (10%), and test (10%)
-train, val, test = np.split(df_emo, [int(.8 * len(df)), int(.9 * len(df))])
-print(len(train), len(val), len(test))
+#train, val, test = np.split(df_emo, [int(.8 * len(df)), int(.9 * len(df))])
+#print(len(train), len(val), len(test))
 
 #save df to an output file
 df.to_csv('path', sep=',', index=False)
